@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coach Jam Digital Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',sans-serif}
+body{background:#0a0f0a;color:white;overflow-x:hidden}
+.hero{min-height:100vh;background:linear-gradient(135deg,#008751 0%,#0a2e1a 100%);display:flex;align-items:center;padding:20px;position:relative}
+.badge{background:rgba(255,255,255,0.15);padding:8px 16px;border-radius:50px;font-size:12px;letter-spacing:1px;margin-bottom:20px;display:inline-block;backdrop-filter:blur(10px)}
+h1{font-size:42px;line-height:1.1;margin-bottom:15px}
+h1 span{color:#a7f3d0}
+.typing{font-size:18px;opacity:0.9;margin-bottom:30px;height:28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:600;transition:0.3s}
+.btn-primary{background:white;color:#008751}
+.btn-outline{border:2px solid white;color:white}
+.services{padding:60px 20px;background:#f8faf8;color:#0a2e1a}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:32px}
+.cards{display:grid;grid-template-columns:1fr;gap:20px;max-width:900px;margin:0 auto}
+@media(min-width:700px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:white;border-radius:20px;padding:30px 20px;box-shadow:0 10px 30px rgba(0,0,0,0.08);transition:0.3s;position:relative}
+.card:hover{transform:translateY(-8px)}
+.card-icon{font-size:40px;margin-bottom:15px}
+.card h3{margin-bottom:10px}
+.card p{opacity:0.7;font-size:14px;line-height:1.6}
+.card-tag{position:absolute;top:15px;right:15px;background:#008751;color:white;font-size:10px;padding:4px 10px;border-radius:20px}
+.footer{background:#0a2e1a;padding:40px 20px;text-align:center}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div>
+<div class="badge">LAGOS • ONLINE • PHYSICAL</div>
+<h1>Coach Jam<br><span>Digital Studies</span></h1>
+<div class="typing" id="typing"></div>
+<div class="btns">
+<a href="#courses" class="btn btn-primary">Explore Courses</a>
+<a href="#courses" class="btn btn-outline">What We Offer</a>
+</div>
+</div>
+</section>
+
+<section class="services" id="courses">
+<div class="section-title">
+<h2>What We Teach</h2>
+<p>Future skills, taught practically</p>
+</div>
+<div class="cards">
+<div class="card">
+<span class="card-tag">HOT</span>
+<div class="card-icon">🤖</div>
+<h3>AI Generation</h3>
+<p>Learn ChatGPT, Midjourney, image & video AI to create content and make money fast.</p>
+</div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Coding</h3>
+<p>From Acode to Vercel. HTML, CSS, JS & real projects like Naija @66 site.</p>
+</div>
+<div class="card">
+<div class="card-icon">🎨</div>
+<h3>Graphics Design</h3>
+<p>Canva, Photoshop, logos, flyers & social media designs that sell.</p>
+</div>
+</div>
+</section>
+
+<div class="footer">
+<h3>Coach Jam Digital Studies</h3>
+<p style="opacity:0.6;margin-top:10px">Building digital bosses in Nigeria 🇳🇬</p>
+<p style="margin-top:20px;font-size:12px;opacity:0.4">© 2026 • Lagos, Nigeria</p>
+</div>
+
+<script>
+const texts = ["AI Generation...", "Coding & Acode...", "Graphics Design..."];
+let count=0, idx=0, del=false;
+function type(){
+  if(count>=texts.length) count=0;
+  let curr=texts[count];
+  let t = del? curr.slice(0, idx--) : curr.slice(0, idx++);
+  document.getElementById("typing").innerText = t + "|";
+  if(!del && idx>curr.length){del=true;setTimeout(type,1000);return}
+  if(del && idx<0){del=false;count++;idx=0}
+  setTimeout(type, del?50:100);
+}
+type();
+</script>
+</body>
+</html>
